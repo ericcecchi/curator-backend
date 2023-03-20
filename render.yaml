@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: directus
+    env: docker
+    plan: starter
+    autoDeploy: false
+    disk:
+      name: directus-uploads
+      mountPath: /var/lib/directus/uploads
+      sizeGB: 1d
+    envVars:
+      - key: DB_CONNECTION_STRING
+        fromDatabase:
+          name: directus
+          property: connectionString      
+      - key: DB_CLIENT
+        value: 'pg'
+      - key: ADMIN_EMAIL
+        value: eric.cecchi@gmail.com
+      - key: ADMIN_PASSWORD
+        generateValue: true
+
+databases:
+  - name: directus
+    plan: starter
+    
