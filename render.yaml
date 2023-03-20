@@ -7,7 +7,7 @@ services:
     disk:
       name: directus-uploads
       mountPath: /var/lib/directus/uploads
-      sizeGB: 1d
+      sizeGB: 1
     envVars:
       - key: DB_CONNECTION_STRING
         fromDatabase:
